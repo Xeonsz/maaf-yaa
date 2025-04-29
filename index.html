@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Slide Maaf</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      color: white;
+      font-family: sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slide-text {
+      position: absolute;
+      top: 30%;
+      width: 100%;
+      text-align: center;
+      font-size: 1.2em; /* Ukuran dikecilkan */
+      line-height: 1.6;
+    }
+
+    .maaf {
+      position: absolute;
+      bottom: -30px;
+      font-size: 1em;
+      color: white;
+      opacity: 0;
+      animation: naik 4s linear forwards;
+    }
+
+    @keyframes naik {
+      to {
+        transform: translateY(-120vh);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="slide-text">
+    Maaf ya...<br>
+    Aku tau aku bikin kamu marah, bad mood, sama ngambek.
+    Nggak ada niat buat nyakitin atau nyebelin.
+    Aku cuma bego aja kadang.<br>
+    Tapi aku beneran minta maap 😔.<br>
+    Maapin yaaaaaa 🙏🏻🙏🏻🙏🏻
+  </div>
+
+  <script>
+    function buatMaaf() {
+      const maaf = document.createElement('div');
+      maaf.className = 'maaf';
+      maaf.innerText = 'Maaf';
+      maaf.style.left = Math.random() * 100 + 'vw';
+      maaf.style.animationDuration = (3 + Math.random() * 2) + 's';
+      document.body.appendChild(maaf);
+
+      setTimeout(() => {
+        maaf.remove();
+      }, 6000);
+    }
+
+    setInterval(buatMaaf, 300);
+  </script>
+</body>
+</html>
